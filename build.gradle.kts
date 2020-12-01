@@ -31,7 +31,7 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget =  (System.getenv("JavaVersion") ?: "11")
     }
 }
 
