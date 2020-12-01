@@ -3,10 +3,14 @@ on: [push]
 jobs:
   execute-gradle-tests:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # https://plugins.gradle.org/plugin/org.springframework.boot/2.3.6.RELEASE
+        boot-version: ["2.2.6.RELEASE", "2.3.6.RELEASE", "2.4"]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
           java-version: 11
       - name: run tests
-        run:  ./gradlew test -i
+        run:  SpringBootVersion=${{ matrix.boot-version }} ./gradlew test -i
