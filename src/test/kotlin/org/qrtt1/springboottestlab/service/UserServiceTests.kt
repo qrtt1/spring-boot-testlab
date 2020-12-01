@@ -1,5 +1,6 @@
 package org.qrtt1.springboottestlab.service
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.mockito.Mockito
 import org.qrtt1.springboottestlab.dto.UserDto
@@ -7,6 +8,7 @@ import org.qrtt1.springboottestlab.repository.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
+import java.lang.AssertionError
 
 @SpringBootTest
 class UserServiceTests {
@@ -23,6 +25,7 @@ class UserServiceTests {
                 UserDto(9527, "5566")
         )
         val user: UserDto = userService.createUser(UserDto(null, "9527"))
-        println(user)
+        Assertions.assertEquals(9527, user.id)
+        Assertions.assertEquals("5566", user.name)
     }
 }
