@@ -9,4 +9,4 @@ jobs:
         with:
           java-version: 11
       - name: run tests
-        run:  ./gradlew test
+        run:  ./gradlew test -i
