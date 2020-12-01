@@ -2,7 +2,7 @@ name: learn-github-actions
 on: [push]
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: Ubuntu-20.04
     strategy:
       matrix:
         boot-version: ["2.2.6.RELEASE", "2.3.6.RELEASE"]
